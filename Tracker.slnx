@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Core/">
+    <Project Path="src/Core/Tracker.Application/Tracker.Application.csproj" />
+    <Project Path="src/Core/Tracker.Domain/Tracker.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="src/Infrastructure/Tracker.Infrastructure/Tracker.Infrastructure.csproj" />
+  </Folder>
+</Solution>
