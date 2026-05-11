@@ -1,32 +1,34 @@
 using Tracker.Domain.Common;
+using Tracker.Domain.ValueObjects;
 
 namespace Tracker.Domain.Entities;
 
 public class Stop : Entity
 {
     public string Name { get; private set; }
-    public double Latitude { get; private set; }
-    public double Longitude { get; private set; }
+    public Location Location { get; set; }
     public short DisplayOrder { get; private set; }
 
-    private Stop(string name, double latitude, double longitude, short displayOrder)
+    private Stop(string name, Location location, short displayOrder)
     {
         Name = name;
-        Latitude = latitude;
-        Longitude = longitude;
+        Location = location;
         DisplayOrder = displayOrder;
     }
 
-    public static Result<Stop> Create(string name, double latitude, double longitude, short displayOrder)
+    public static Result<Stop> Create(string name, Location location, short displayOrder)
     {
         var errors = new List<string>();
 
         if (string.IsNullOrWhiteSpace(name))
             errors.Add("Name is required.");
 
+        if (location == null)
+            errors.Add("Location is required.");
+
         if (errors.Count > 0)
             return Result.Failure<Stop>(errors);
 
-        return Result.Success(new Stop(name, latitude, longitude, displayOrder));
+        return Result.Success(new Stop(name, location!, displayOrder));
     }
 }
