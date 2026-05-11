@@ -10,4 +10,10 @@
     <ProjectReference Include="../Tracker.Domain/Tracker.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common/" />
+    <Folder Include="Common/Contracts/" />
+    <Folder Include="Common/Contracts/Repositories/" />
+  </ItemGroup>
+
 </Project>
