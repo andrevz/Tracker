@@ -7,4 +7,8 @@
   <Folder Name="/src/Infrastructure/">
     <Project Path="src/Infrastructure/Tracker.Infrastructure/Tracker.Infrastructure.csproj" />
   </Folder>
+  <Folder Name="/src/Presentation/">
+    <Project Path="src/Presentation/Tracker.WebApp/Tracker.WebApp.Client/Tracker.WebApp.Client.csproj" />
+    <Project Path="src/Presentation/Tracker.WebApp/Tracker.WebApp/Tracker.WebApp.csproj" />
+  </Folder>
 </Solution>
