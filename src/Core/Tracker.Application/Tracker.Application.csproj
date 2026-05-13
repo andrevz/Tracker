@@ -13,7 +13,16 @@
   <ItemGroup>
     <Folder Include="Common/" />
     <Folder Include="Common/Contracts/" />
+    <Folder Include="Common/Contracts/CQRS/" />
     <Folder Include="Common/Contracts/Repositories/" />
+    <Folder Include="Common/Contracts/Services/" />
+    <Folder Include="Common/Contracts/Services/CQRS/" />
+    <Folder Include="Common/Services/" />
+    <Folder Include="Common/Services/CQRS/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.7" />
   </ItemGroup>
 
 </Project>
