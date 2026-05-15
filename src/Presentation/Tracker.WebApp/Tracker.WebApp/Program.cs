@@ -1,7 +1,12 @@
+using Tracker.Application;
+using Tracker.Infrastructure;
 using Tracker.WebApp.Client.Pages;
 using Tracker.WebApp.Components;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure(builder.Configuration);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
