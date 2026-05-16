@@ -4,10 +4,10 @@ html, body {
 }
 
 .map-page {
-    min-height: calc(100vh - 3.5rem); /* leave room for the top row */
+    min-height: calc(100vh - 5.5rem); /* leave room for the top row */
 }
 
 #map {
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 5.5rem);
 }

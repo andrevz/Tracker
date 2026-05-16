@@ -1,4 +1,5 @@
 @page "/map"
+@rendermode InteractiveServer
 @using Tracker.Application.Common.Contracts.Services.CQRS
 @using Tracker.Application.Features.Stops.GetAll.DTO
 @using Tracker.Application.Features.Stops.GetAll.Query
@@ -6,7 +7,9 @@
 @inject IDispatcher Dispatcher
 @inject IJSRuntime JS
 
-<div id="map" class="map-container"></div>
+<div class="map-page">
+    <div id="map" class="map-container"></div>
+</div>
 
 @code {
     protected override async Task OnInitializedAsync()
