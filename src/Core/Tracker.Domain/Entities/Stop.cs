@@ -6,7 +6,7 @@ namespace Tracker.Domain.Entities;
 public class Stop : Entity
 {
     public string Name { get; private set; }
-    public Location Location { get; set; }
+    public Location Location { get; private set; }
     public short DisplayOrder { get; private set; }
 
     protected Stop() {}
@@ -25,12 +25,8 @@ public class Stop : Entity
         if (string.IsNullOrWhiteSpace(name))
             errors.Add("Name is required.");
 
-        if (location == null)
-            errors.Add("Location is required.");
-
-        if (errors.Count > 0)
-            return Result.Failure<Stop>(errors);
-
-        return Result.Success(new Stop(name, location!, displayOrder));
+        return errors.Count > 0 
+            ? Result.Failure<Stop>(errors) 
+            : Result.Success(new Stop(name, location!, displayOrder));
     }
 }
