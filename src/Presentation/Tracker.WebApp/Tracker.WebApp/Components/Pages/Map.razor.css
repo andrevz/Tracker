@@ -1,0 +1,13 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.map-page {
+    min-height: calc(100vh - 3.5rem); /* leave room for the top row */
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}

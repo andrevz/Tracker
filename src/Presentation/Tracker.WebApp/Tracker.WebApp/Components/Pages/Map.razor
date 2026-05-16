@@ -4,12 +4,29 @@
 @using Tracker.Application.Features.Stops.GetAll.Query
 @using Tracker.Domain.Common
 @inject IDispatcher Dispatcher
+@inject IJSRuntime JS
 
-<h3>Map</h3>
+<div id="map" class="map-container"></div>
 
 @code {
     protected override async Task OnInitializedAsync()
     {
         var result = await Dispatcher.QueryAsync<GetAllStopsQuery, Result<IEnumerable<GetAllStopResponse>>>(new GetAllStopsQuery());
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender)
+            return;
+
+        try
+        {
+            await using var module = await JS.InvokeAsync<IJSObjectReference>("import", "/js/map-init.js");
+            await module.InvokeVoidAsync("initLeafletMap");
+        }
+        catch (JSException ex)
+        {
+            Console.WriteLine($"Leaflet init failed: {ex.Message}");
+        }
     }
 }
