@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../../../Core/Tracker.Application/Tracker.Application.csproj" />
-    <ProjectReference Include="../../../Infrastructure/Tracker.Infrastructure/Tracker.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\Core\Tracker.Application\Tracker.Application.csproj" />
+    <ProjectReference Include="..\..\..\Infrastructure\Tracker.Infrastructure\Tracker.Infrastructure.csproj" />
     <ProjectReference Include="..\Tracker.WebApp.Client\Tracker.WebApp.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="10.0.7" />
   </ItemGroup>
