@@ -9,7 +9,11 @@ public class Stop : Entity
     public Location Location { get; private set; }
     public short DisplayOrder { get; private set; }
 
-    protected Stop() {}
+    protected Stop()
+    {
+        Name = string.Empty;
+        Location = null!;
+    }
 
     private Stop(string name, Location location, short displayOrder)
     {
