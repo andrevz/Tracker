@@ -12,9 +12,15 @@
 </div>
 
 @code {
+    private IEnumerable<GetAllStopResponse> stops = Array.Empty<GetAllStopResponse>();
+    
     protected override async Task OnInitializedAsync()
     {
         var result = await Dispatcher.QueryAsync<GetAllStopsQuery, Result<IEnumerable<GetAllStopResponse>>>(new GetAllStopsQuery());
+        if (result?.IsSuccess == true)
+        {
+            stops = result.Value ?? [];
+        }
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -26,6 +32,10 @@
         {
             await using var module = await JS.InvokeAsync<IJSObjectReference>("import", "/js/map-init.js");
             await module.InvokeVoidAsync("initLeafletMap");
+            foreach (var stop in stops)
+            {
+                await module.InvokeVoidAsync("addStopMarker", stop.Latitude, stop.Longitude, stop.Name);
+            }
         }
         catch (JSException ex)
         {
