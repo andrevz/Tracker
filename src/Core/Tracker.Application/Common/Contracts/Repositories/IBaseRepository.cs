@@ -5,4 +5,5 @@ namespace Tracker.Application.Common.Contracts.Repositories;
 public interface IBaseRepository<TEntity> where TEntity : Entity
 {
     Task<IEnumerable<TEntity>> GetAllSync();
+    Task<TEntity?> GetByIdAsync(Guid id);
 }

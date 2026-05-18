@@ -13,4 +13,9 @@ internal abstract class BaseRepository<TEntity>(TrackerDbContext context) : IBas
             .AsNoTracking()
             .ToListAsync();
     }
+
+    public async Task<TEntity?> GetByIdAsync(Guid id)
+    {
+        return await context.Set<TEntity>().FindAsync(id);
+    }
 }
